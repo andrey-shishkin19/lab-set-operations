@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <cmath>
+#include <stdexcept>
 
 using namespace std;
 

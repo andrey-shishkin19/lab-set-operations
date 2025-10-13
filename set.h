@@ -95,7 +95,7 @@ public:
     void remove(const T& value) {
         for (size_t i = 0; i < _size; ++i) {
             if (is_equal(_data[i], value)) {
-                for (size_t j = i; j < _size - 1; ++j) {
+                for (size_t j = i; j < _size - 1; ++j) {     // shift elements
                     _data[j] = _data[j + 1];
                 }
                 --_size;
@@ -116,7 +116,7 @@ public:
     }
 
     set operator+(const set& other) const {
-        set result(*this);
+        set result(*this);                      // create copy actual
         for (size_t i = 0; i < other._size; ++i) {
             result.add(other._data[i]);
         }
@@ -133,13 +133,13 @@ public:
         return result;
     }
 
-    set operator+(const T& value) const {
+    set operator+(const T& value) const {  // for set+num
         set result(*this);
         result.add(value);
         return result;
     }
 
-    set operator-(const T& value) const {
+    set operator-(const T& value) const {   // for set-num
         set result(*this);
         result.remove(value);
         return result;

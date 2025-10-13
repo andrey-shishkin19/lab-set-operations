@@ -67,14 +67,13 @@ public:
     }
 
     set(size_t count, const T& min_value, const T& max_value) : _data(nullptr), _capacity(0), _size(0) {
-        if (count == 0) return;
+        if (count > 0) {
+            random_device rd;
+            mt19937 gen(rd());
 
-        random_device rd;
-        mt19937 gen(rd());
-
-        
-        for (size_t i = 0; i < count; ++i) {
-            add(min_value);
+            for (size_t i = 0; i < count; ++i) {
+                add(min_value);
+            }
         }
     }
 

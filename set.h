@@ -71,8 +71,10 @@ public:
             random_device rd;
             mt19937 gen(rd());
 
+            uniform_int_distribution<T> dis(min_value, max_value);
+            
             for (size_t i = 0; i < count; ++i) {
-                add(min_value);
+                add(dis(gen));
             }
         }
     }

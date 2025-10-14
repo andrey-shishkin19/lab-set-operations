@@ -58,6 +58,10 @@ private:
         return a == b;
     }
 
+    bool is_equal(double a, double b) const {
+        return abs(a - b) <= _epsilon;
+    }
+
 public:
     set() : _data(nullptr), _capacity(0), _size(0) {}
 

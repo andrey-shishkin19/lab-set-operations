@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Set.h"
-#include "Function.h"
+#include "set.h"
+#include "function.h"
 
 
 using namespace std;

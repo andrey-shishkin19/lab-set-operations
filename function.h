@@ -1,7 +1,7 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
-#include "Set.h"
+#include "set.h"
 #include <iostream>
 
 using namespace std;

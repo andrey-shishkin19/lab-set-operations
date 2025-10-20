@@ -3,121 +3,112 @@
 
 #include "set.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 void test() {
-    set<int> s1;
-    s1.add(1);
-    s1.add(2);
-    s1.add(3);
-    cout << "s1 = " << s1 << "\n";
-
-    set<int> s2;
-    s2.add(3);
-    s2.add(4);
-    cout << "s2 = " << s2 << "\n";
-
-    cout << "s1 + s2 = " << s1 + s2 << "\n";
-    cout << "s1 - s2 = " << s1 - s2 << "\n";
-    cout << "Intersection: " << s1.intersection(s2) << "\n";
-    cout << "s1.has(2) = " << s1.has(2) << "\n";
-    cout << "s1.is_empty() = " << s1.is_empty() << "\n\n";
+    int arr_int[] = {1, 3, 5, 7, 9};
+    set<int> A1(arr_int, 5);
+    cout << "A1 = " << A1 << "\n";
     
-
-
-    set<float> f1;
-    f1.add(1.1);
-    f1.add(2.2);
-    f1.add(3.3);
-    cout << "f1 = " << f1 << "\n";
-
-    set<float> f2;
-    f2.add(2.2);
-    f2.add(4.4);
-    cout << "f2 = " << f2 << "\n";
-
-    cout << "f1 + f2 = " << f1 + f2 << "\n";
-    cout << "f1 - f2 = " << f1 - f2 << "\n";
-    cout << "f1.has(2.2) = " << f1.has(2.2) << "\n";
-
-    set<float> f3;
-    f3.add(1.100000000001);
-    cout << "f1.has(1.100000000001): " << f1.has(1.100000000001) << "\n\n";
-
-
-
-    set<string> str1;
-    str1.add("apple");
-    str1.add("banane");
-    str1.add("orange");
-    cout << "str1 = " << str1 << "\n";
-
-    set<string> str2;
-    str2.add("banana");
-    str2.add("grape");
-    cout << "str2 = " << str2 << "\n";
-
-    cout << "str1 + str2 = " << str1 + str2 << "\n";
-    cout << "Intersection: " << str1.intersection(str2) << "\n";
-    cout << "str1.has('apple') = " << str1.has("apple") << "\n\n";
-
-    
-
-    set<pair<int, double>> p1;
-    p1.add({1, 1.1});
-    p1.add({2, 2.2});
-    p1.add({3, 3.3});
-    cout << "p1 = " << p1 << "\n";
-
-    set<pair<int, double>> p2;
-    p2.add({2, 2.2});
-    p2.add({4, 4.4});
-    cout << "p2 = " << p2 << "\n";
-
-    cout << "p1 + p2 = " << (p1 + p2) << "\n";
-    cout << "p1.has({2, 2.2}) = " << p1.has({2, 2.2}) << "\n\n";
-
-    
+    set<int> A5(A1);
+    cout << "A5 = " << A5 << "\n";
 
     set<int> A;
-    A.add(1); A.add(2); A.add(3); A.add(4); A.add(5);
-
+    A.add(1); A.add(2); A.add(3);
     set<int> B;
     B.add(2); B.add(3); B.add(4);
 
-    set<int> C;
-    C.add(4); C.add(5); C.add(6);
-
     cout << "A = " << A << "\n";
     cout << "B = " << B << "\n";
-    cout << "C = " << C << "\n\n";
+    cout << "A + B = " << A + B << "\n";
+    cout << "A - B = " << A - B << "\n";
+    cout << "A + 5 = " << A + 5 << "\n";
+    cout << "A - 2 = " << A - 2 << "\n";
+    cout << "A.has(2) = " << A.has(2) << "\n";
+    cout << "Intersection = " << set_intersection(A, B) << "\n";
+    cout << "A == B = " << (A == B) << "\n";
+    cout << "A != B = " << (A != B) << "\n";
 
-    cout << "B is subset of A: " << (B.is_subset_of(A) ? "Yes" : "No") << "\n";
-    cout << "A is superset of B: " << (A.is_superset_of(B) ? "Yes" : "No") << "\n";
-    cout << "C is subset of A: " << (C.is_subset_of(A) ? "Yes" : "No") << "\n";
-    cout << "A is superset of C: " << (A.is_superset_of(C) ? "Yes" : "No") << "\n\n";
+    set<int> C;
+    C.add(2); C.add(3);
+    cout << "C = " << C << "\n";
+    
+    C += 10;
+    cout << "C += 10 = " << C << "\n";
+    C -= 2;
+    cout << "C -= 2 = " << C << "\n";
+
+    cout << "C is subset of A = " << is_subset(C, A) << "\n";
+    cout << "A is superset of C = " << is_superset(A, C) << "\n";
+    cout << "A[0] = " << A[0] << "\n";
 
     
+    float arr_float[] = {1.1, 3.3, 5.5, 7.7, 9.9};
+    set<float> A2(arr_float, 5);
+    cout << "A2 = " << A2 << "\n";
 
+    set<float> D;
+    D.add(1.1); D.add(2.2); D.add(3.3);
+    set<float> E;
+    E.add(2.2); E.add(4.4);
+
+    cout << "D = " << D << "\n";
+    cout << "E = " << E << "\n";
+    cout << "D + E = " << D + E << "\n";
+    cout << "D.has(2.2001) = " << D.has(2.2001) << "\n";
+
+    
+    string arr_str[] = {"Lamine", "Bellingham", "Vitinha"};
+    set<string> F1(arr_str, 3);
+    cout << "F1 from array = " << F1 << "\n";
+
+    set<string> F;
+    F.add("apple"); F.add("Yamal"); F.add("orange");
+    set<string> G;
+    G.add("Yamal"); G.add("grape");
+
+    cout << "F = " << F << "\n";
+    cout << "G = " << G << "\n";
+    cout << "F + G = " << F + G << "\n";
+    cout << "F.has(\"apple\") = " << F.has("apple") << "\n";
+
+    
+    set<pair<int, double>> H;
+    H.add({1, 1.1}); H.add({2, 2.2}); H.add({3, 3.3});
+    set<pair<int, double>> I;
+    I.add({2, 2.2}); I.add({4, 4.4});
+
+    cout << "H = " << H << "\n";
+    cout << "I = " << I << "\n";
+    cout << "H + I = " << H + I << "\n";
+    cout << "H.has({2, 2.2001}) = " << H.has({2, 2.2001}) << "\n";
+
+    
+    set<int> random_ints(5, 1, 10);
+    set<float> random_floats(4, 0.0, 5.0);
+    set<string> random_strings(4, "a", "z");
+
+    cout << "Random ints = " << random_ints << "\n";
+    cout << "Random floats = " << random_floats << "\n";
+    cout << "Random strings = " << random_strings << "\n";
+
+
+    
+    set<int> J = A;
+    J += 10;
+    cout << "A += 10 = " << J << "\n";
+    J -= 2;
+    cout << "J -= 2 = " << J << "\n";
+
+    
     try {
-        cout << "Index Error: ";
-        int value = s1[10];
-        cout << value << "\n";
+        cout << "A[10] = " << A[10] << "\n";
     }
     catch (const exception& e) {
-        cout << e.what() << "\n";
+        cout << "Exception: " << e.what() << "\n";
     }
-
-    
-
-    set<int> test;
-    cout << test << "\n";
-    test += 10;
-    test += 20;
-    cout << test << "\n";
-    test -= 10;
-    cout << test << "\n";
 }
 
 #endif
